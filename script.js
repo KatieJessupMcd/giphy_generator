@@ -14,7 +14,10 @@ $(function() {
   });
 
   function appendGiphy(res) {
-    let giphyPic = res.data[0].images.downsized_large.url;
+    let randomNum =  Math.floor(Math.random() * res.data.length);
+    console.log(randomNum); 
+
+    let giphyPic = res.data[randomNum].images.downsized_large.url;
 
     let $img = $("<img class='newGiphy' width='500'>");
     $img.attr('src', giphyPic);
@@ -25,4 +28,9 @@ $(function() {
   $('#remove').on('click', function() {
     $('.newGiphy').remove();
   });
+
+  function randomGiphy() {
+    let randomNum = Math.random(100);
+    return randomNum; 
+  }
 });
